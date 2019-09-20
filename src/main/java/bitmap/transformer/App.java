@@ -14,18 +14,20 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
-    }
+        String fileIn = args[0];
+        String fileOut = args[1];
+        String method = args[2];
 
+        Bitmap image = new Bitmap(fileIn);
+        if(method.equals("flipHoriz")){
+            image.flipHoriz(fileOut);
+        }
+        if(method.equals("flipVert")){
+            image.flipVert(fileOut);
+        }
+        if(method.equals("tiedye")){
+            image.tiedye(fileOut);
+        }
+    }
     //https://alvinalexander.com/blog/post/java/open-read-image-file-java-imageio-class
-
-    public void JavaImageIOTest(){
-        try{
-            BufferedImage image = ImageIO.read(new File());
-            
-        }
-        catch(Exception e){
-            System.out.println("Something went weird.")
-        }
-    }
-
 }
