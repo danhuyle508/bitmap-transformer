@@ -14,18 +14,17 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
-    }
+        System.out.println(args[0]);
 
+        Bitmap blah = new Bitmap(args[0]);
+        blah.args[2](agrs[1]);
+
+        Bitmap oatmeal = new Bitmap("/Users/jamesdansie/codefellows/401/bitmap-transformer/src/main/resources/stuff.bmp");
+        oatmeal.flipHoriz();
+        oatmeal = new Bitmap("/Users/jamesdansie/codefellows/401/bitmap-transformer/src/main/resources/stuff.bmp");
+        oatmeal.flipVert();
+        oatmeal = new Bitmap("/Users/jamesdansie/codefellows/401/bitmap-transformer/src/main/resources/stuff.bmp");
+        oatmeal.tiedye();
+    }
     //https://alvinalexander.com/blog/post/java/open-read-image-file-java-imageio-class
-
-    public void JavaImageIOTest(){
-        try{
-            BufferedImage image = ImageIO.read(new File());
-            
-        }
-        catch(Exception e){
-            System.out.println("Something went weird.")
-        }
-    }
-
 }
