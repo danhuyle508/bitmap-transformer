@@ -21,7 +21,8 @@ public class Bitmap {
     }
 
     //flip horizontally
-    public void flipHoriz() {
+    public void flipHoriz(String fileOut) {
+        System.out.println("Inside flip horizontal");
 
         //replace in place
         for (int y = 0; y < this.image.getHeight(); y++) {
@@ -38,13 +39,13 @@ public class Bitmap {
             }
         }
         try {
-            ImageIO.write(this.image, "BMP", new File(url.substring(0, url.length() - 4) + "horizFlip.bmp"));
+            ImageIO.write(this.image, "BMP", new File(fileOut));
         } catch (Exception e) {
             System.out.println("Failed to write hortizontal flip file.");
         }
     }
 
-    public void flipVert() {
+    public void flipVert(String fileOut) {
 
         //replace in place
         for (int x = 0; x < this.image.getHeight(); x++) {
@@ -61,13 +62,13 @@ public class Bitmap {
             }
         }
         try {
-            ImageIO.write(this.image, "BMP", new File(url.substring(0, url.length() - 4) + "vertFlip.bmp"));
+            ImageIO.write(this.image, "BMP", new File(fileOut));
         } catch (Exception e) {
             System.out.println("Failed to write vertical flip file.");
         }
     }
 
-    public void tiedye() {
+    public void tiedye(String fileOut) {
         for (int x = 0; x < this.image.getHeight(); x++) {
             for (int y = 0; y < this.image.getWidth(); y++) {
 
@@ -84,7 +85,7 @@ public class Bitmap {
             }
         }
         try {
-            ImageIO.write(this.image, "BMP", new File(url.substring(0, url.length() - 4) + "tiedye.bmp"));
+            ImageIO.write(this.image, "BMP", new File(fileOut));
         } catch (Exception e) {
             System.out.println("Failed to write vertical flip file.");
         }

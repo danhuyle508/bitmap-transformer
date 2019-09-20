@@ -14,17 +14,24 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
-        System.out.println(args[0]);
+        String fileIn = args[0];
+        String fileOut = args[1];
+        String method = args[2];
 
-        Bitmap blah = new Bitmap(args[0]);
-        blah.args[2](agrs[1]);
-
-        Bitmap oatmeal = new Bitmap("/Users/jamesdansie/codefellows/401/bitmap-transformer/src/main/resources/stuff.bmp");
-        oatmeal.flipHoriz();
-        oatmeal = new Bitmap("/Users/jamesdansie/codefellows/401/bitmap-transformer/src/main/resources/stuff.bmp");
-        oatmeal.flipVert();
-        oatmeal = new Bitmap("/Users/jamesdansie/codefellows/401/bitmap-transformer/src/main/resources/stuff.bmp");
-        oatmeal.tiedye();
+        Bitmap image = new Bitmap(fileIn);
+//        image.flipHoriz(fileOut);
+        if(method.equals("flipHoriz")){
+            System.out.println("made it to if");
+            image.flipHoriz(fileOut);
+        }
+        if(method.equals("flipVert")){
+            System.out.println("made it to if");
+            image.flipVert(fileOut);
+        }
+        if(method.equals("tiedye")){
+            System.out.println("made it to if");
+            image.tiedye(fileOut);
+        }
     }
     //https://alvinalexander.com/blog/post/java/open-read-image-file-java-imageio-class
 }
