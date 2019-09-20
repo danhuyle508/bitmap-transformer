@@ -19,17 +19,13 @@ public class App {
         String method = args[2];
 
         Bitmap image = new Bitmap(fileIn);
-//        image.flipHoriz(fileOut);
         if(method.equals("flipHoriz")){
-            System.out.println("made it to if");
             image.flipHoriz(fileOut);
         }
         if(method.equals("flipVert")){
-            System.out.println("made it to if");
             image.flipVert(fileOut);
         }
         if(method.equals("tiedye")){
-            System.out.println("made it to if");
             image.tiedye(fileOut);
         }
     }

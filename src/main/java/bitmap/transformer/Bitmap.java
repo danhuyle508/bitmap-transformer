@@ -21,8 +21,8 @@ public class Bitmap {
     }
 
     //flip horizontally
-    public void flipHoriz(String fileOut) {
-        System.out.println("Inside flip horizontal");
+    public boolean flipHoriz(String fileOut) {
+        boolean success = false;
 
         //replace in place
         for (int y = 0; y < this.image.getHeight(); y++) {
@@ -40,12 +40,15 @@ public class Bitmap {
         }
         try {
             ImageIO.write(this.image, "BMP", new File(fileOut));
+            success = true;
         } catch (Exception e) {
             System.out.println("Failed to write hortizontal flip file.");
         }
+        return success;
     }
 
-    public void flipVert(String fileOut) {
+    public boolean flipVert(String fileOut) {
+        boolean success = false;
 
         //replace in place
         for (int x = 0; x < this.image.getHeight(); x++) {
@@ -63,12 +66,15 @@ public class Bitmap {
         }
         try {
             ImageIO.write(this.image, "BMP", new File(fileOut));
+            success = true;
         } catch (Exception e) {
             System.out.println("Failed to write vertical flip file.");
         }
+        return success;
     }
 
-    public void tiedye(String fileOut) {
+    public boolean tiedye(String fileOut) {
+        boolean success = false;
         for (int x = 0; x < this.image.getHeight(); x++) {
             for (int y = 0; y < this.image.getWidth(); y++) {
 
@@ -79,16 +85,19 @@ public class Bitmap {
                 int g = (int) (((Math.pow(256,3) + rgb) / 256 ) % 256 );
                 int b = (int) ((Math.pow(256,3) + rgb) % 256);
 
+                //shift the colors so red equals blue, green equals red, and blue equals green.
                 int rgbOut = new Color(b, r, g).getRGB();
 
                 this.image.setRGB(x, y, rgbOut);
             }
         }
         try {
+            success = true;
             ImageIO.write(this.image, "BMP", new File(fileOut));
         } catch (Exception e) {
             System.out.println("Failed to write vertical flip file.");
         }
+        return success;
     }
 
 }
